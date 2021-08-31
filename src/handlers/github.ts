@@ -16,7 +16,7 @@ export async function verifyGithub(message: Message): Promise<void> {
     const foundUser = await User.findOne({ discordId: message.author.id })
 
     if (!foundUser) 
-      throw "You first need to save your wallet address with the `!pollen save-wallet <wallet-address>` command.";
+      throw "You first need to save your wallet address with the `!bal save-wallet <wallet-address>` command.";
 
     const [ username ] = parseGithubVerification(
       message.content,
@@ -32,7 +32,7 @@ export async function verifyGithub(message: Message): Promise<void> {
     else {
       log(err);
       message.reply(
-        "Command parsing failed. Please use the !pollen info command to see how to use the requested command properly."
+        "Command parsing failed. Please use the !bal info command to see how to use the requested command properly."
       );
     }
   }
@@ -43,7 +43,7 @@ export async function checkGithub(message: Message): Promise<void> {
     const foundUser = await User.findOne({ discordId: message.author.id })
 
     if (!foundUser) 
-      throw "You first need to save your wallet address with the `!pollen save-wallet <wallet-address>` command.";
+      throw "You first need to save your wallet address with the `!bal save-wallet <wallet-address>` command.";
 
     const [ verification_code, username ] = parseGithubCheck(
       message.content,
@@ -73,7 +73,7 @@ export async function checkGithub(message: Message): Promise<void> {
     else {
       log(err);
       message.reply(
-        "Command parsing failed. Please use the !pollen info command to see how to use the requested command properly."
+        "Command parsing failed. Please use the !bal info command to see how to use the requested command properly."
       );
     }
   }

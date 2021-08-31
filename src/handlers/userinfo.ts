@@ -10,7 +10,7 @@ export default async function userinfo(message: Message): Promise<void> {
     ).select("-_id -modifiedAt -createdAt");
 
     if (!foundUser) message.reply(
-      "We could not find you on the DB, please send `!pollen info` to know how to get onboarded."
+      "We could not find you on the DB, please send `!bal info` to know how to get onboarded."
     );
     else {
       if (message.channel.type !== "dm") message.reply("Check DM.");

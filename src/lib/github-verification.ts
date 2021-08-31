@@ -47,7 +47,7 @@ async function getUserGist(github_username: string) {
   let gistPollen, username;
 
   for (let i = 0; i < responseJson.length; i++) {
-    if (responseJson[i].files["pollen.md"]) {
+    if (responseJson[i].files["bal.md"]) {
       const gistJson = await fetch(responseJson[i].url).then((response) => {
         if (response.ok) {
           return response.json();
@@ -56,7 +56,7 @@ async function getUserGist(github_username: string) {
         }
       });
 
-      gistPollen = gistJson.files["pollen.md"];
+      gistPollen = gistJson.files["bal.md"];
       username = gistJson.owner.login;
     }
   }
@@ -75,7 +75,7 @@ async function matchUser(
   if (verification_code !== tempStorage[discord_id]) {
     message = errorGithubVerificationEmbed(
       `You first need to submit this command:
-      **!pollen verify-github ${github_username}**`
+      **!bal verify-github ${github_username}**`
     );
     ok = false;
 

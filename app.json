@@ -1,13 +1,13 @@
 {
-    "name": "Pollen bot",
-    "description": "A discord bot to support Pollen duties 🏵",
+    "name": "SourceCred Bot",
+    "description": "A discord bot to support Treasury duties 🏦",
     "repository": "https://github.com/1Hive/pollen-bot",
-    "logo": "https://www.wholekidsfoundation.org/assets/images/Worker-Bee-Roles_Guard.png",
-    "keywords": ["node", "discord", "1Hive"],
+    "logo": "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
+    "keywords": ["node", "discord", "Balancer"],
     "env": {
-      "DISCORD_API_TOKEN": "YOUR_DISCORD_API_TOKEN",
-      "MONGODB_URI": "Your MongoDB connection URI.",
-      "GUILD_ID": "Your Discord server ID.",
-      "POLLEN_ADMIN": "Your pollen admin ID."
+      "DISCORD_API_TOKEN": "ODgwNTUyOTE3OTQ0MzgxNDcx.YSf8zw.FR8ynvnhzrVwDMaZNp-JBazpRZQ",
+      "MONGODB_URI": "mongodb://localhost",
+      "GUILD_ID": "880547738742308874",
+      "POLLEN_ADMIN": "760638567562477649"
     }
   }

@@ -21,7 +21,7 @@ function warnOnce(domain, ...args) {
 
 export async function loadLedger(): Promise<any> {
   try {
-    const ledgerFileURI = "https://raw.githubusercontent.com/1Hive/pollen/gh-pages/data/ledger.json"
+    const ledgerFileURI = "https://raw.githubusercontent.com/hozzjss/advocates-sc/gh-pages/data/ledger.json"
     const ledgerFileResponse = await fetch(ledgerFileURI);
 
     if (!ledgerFileResponse.ok)

@@ -9,7 +9,7 @@ import {
 // external function that will be called by the discord app when user confirms it has changed the name with the verification_code
 // the discord_id can be changed by any other identifier like a wallet address in the future
 
-// discord_id of user is Mandatory!  verification_code should only be sent if the user uses the " !pollen discourse_check ${verification_code} " code
+// discord_id of user is Mandatory!  verification_code should only be sent if the user uses the " !bal discourse_check ${verification_code} " code
 
 export async function handleDiscourseVerify(
   discord_id: string,
@@ -62,7 +62,7 @@ async function matchUser(
   if (verification_code !== tempStorage[discord_id]) {
     message = errorDiscourseVerificationEmbed(
       `You first need to submit this command:
-      **!pollen verify-discourse ${discourse_username}**`
+      **!bal verify-discourse ${discourse_username}**`
     );
     ok = false;
 

@@ -70,7 +70,7 @@ client.on("message", (message) => {
     if (err instanceof RequestHandlerError) {
       log(`${err}`);
       message.reply(
-        "Could not find the requested command. Please use !pollen help for more info."
+        "Could not find the requested command. Please use !bal help for more info."
       );
     }
     // Sentry.captureException(err)

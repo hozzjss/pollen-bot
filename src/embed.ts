@@ -24,17 +24,17 @@ export function wrongChannelWarningEmbed(): MessageEmbed {
 export function walletWarningEmbed(): MessageEmbed {
   return new MessageEmbed({
     title: "Warning 🚨",
-    description: "You are using the `!pollen save-wallet` command incorrectly!",
+    description: "You are using the `!bal save-wallet` command incorrectly. You may have included < > when just your ETH address is needed. Please try again.",
     color: 16769024,
     fields: [
       {
-        name: "`!pollen save-wallet <address>`",
+        name: "`!bal save-wallet <address>`",
         value:
-          "Correct usage of this command requires you to add your xDai wallet address.",
+          "Correct usage of this command requires you to add your ETH wallet address.",
       },
     ],
     image: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
     },
     timestamp: new Date(),
     footer: {
@@ -47,45 +47,42 @@ export function infoEmbed(): MessageEmbed {
   return new MessageEmbed({
     color: 16769024,
     author: {
-      name: "Pollen bot",
+      name: "SourceCred Sign-in Bot",
       url: "https://github.com/1Hive/pollen-bot",
     },
     description:
-      "[Pollen](https://wiki.1hive.org/getting-started/pollen) is a contributor rank used to recognize contributions to 1Hive's Discord, Discourse, and GitHub communities. These contributions are rewarded with weekly distributions of Honey.",
+      "[SourceCred](https://sourcecred.io) is a contributor rank used to recognize contributions across the web3 ecosystem and currently on the Balancer Discord server. These contributions are rewarded with weekly distributions of BAL.",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
     },
     fields: [
       {
         name: "Signing up",
         value:
-          "To sign up for Pollen, you need to send your information to the DB using some of the following commands.",
+          "To sign up to recieve BAL for your contributions recorded by SourceCred, you need to send your information to the DB using some of the following commands.",
       },
       {
         name: "Save wallet address - required",
         value:
-          "Send `!pollen save-wallet <wallet-address>` to add your wallet address to the Pollen DB as well as your Discord ID and Discord tag.",
+          "Send `!bal save-wallet <wallet-address>` to add your wallet address to the SourceCred-Balancer DB as well as your Discord ID and Discord tag.",
       },
-      {
-        name: "Save Discourse (Forum) account - optional",
-        value:
-          "Send `!pollen verify-discourse <discourse-username>` and follow the process to verify and add your Discourse account (if you have one) to the Pollen DB.",
-      },
-      {
-        name: "Save GitHub account - optional",
-        value:
-          "Send `!pollen verify-github <github-username>` and follow the process to verify and add your GitHub account (if you have one) to the Pollen DB.",
-      },
+      // {
+      //   name: "Save Discourse (Forum) account - optional",
+      //   value:
+      //     "Send `!bal verify-discourse <discourse-username>` and follow the process to verify and add your Discourse account (if you have one) to the SourceCred-Balancer DB.",
+      // },
+      // {
+      //   name: "Save GitHub account - optional",
+      //   value:
+      //     "Send `!bal verify-github <github-username>` and follow the process to verify and add your GitHub account (if you have one) to the SourceCred-Balancer DB.",
+      // },
       {
         name: "Update Discord account",
         value:
-          "Send `!pollen update-discord` in case you want to update your Discord tag in the DB",
+          "Send `!bal update-discord` in case you want to update your Discord tag in the DB",
       }
     ],
-    timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
+    timestamp: new Date()
   })
 }
 
@@ -93,48 +90,48 @@ export function helpEmbed(): MessageEmbed {
   return new MessageEmbed({
     color: 16769024,
     author: {
-      name: "Pollen bot",
+      name: "SourceCred Sign-in Bot",
       url: "https://github.com/1Hive/pollen-bot",
     },
     description:
-      "Hi, my name's Pollen Bot, I handle some Pollen related actions. All my commands are prefixed by `!pollen`. Refer to the list below for a list of my commands!",
+      "Hi, I'm the SourceCred Sign-in Bot, I handle some SourceCred related actions, like signing up and activating accounts. All my commands are prefixed by `!bal`. Refer to the list below for a list of my commands!",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
     },
     fields: [
       {
-        name: "!pollen help",
-        value: "Lists all pollen commands."
+        name: "!bal help",
+        value: "Lists all SourceCred Sign-in Bot commands."
       },
       {
-        name: "!pollen info",
-        value: "Displays information of what Pollen is and how to get started.",
+        name: "!bal info",
+        value: "Displays information of what SourceCred is in the Balancer Server and how to get started.",
       },
       {
-        name: "!pollen mycred",
+        name: "!bal mycred",
         value:
           "Shows your total cred, cred earned last week and cred earned this week.",
       },
       {
-        name: "!pollen userinfo",
-        value: "Shows your pollen user info saved in the database."
+        name: "!bal userinfo",
+        value: "Shows your SourceCred user info saved in the database."
       },
       {
-        name: "!pollen save-wallet YourWalletAddress",
-        value: "Saves your wallet address, Discord ID and Discord tag in the database (address will be used for pollen payouts).",
+        name: "!bal save-wallet YourWalletAddress",
+        value: "Saves your wallet address, Discord ID and Discord tag in the database (address will be used for SourceCred BAL payouts).",
       },
+      // {
+      //   name: "!bal verify-discourse YourDiscourseUsername",
+      //   value:
+      //     "Begins the process of verifying and saving your Discourse username in the database.",
+      // },
+      // {
+      //   name: "!bal verify-github YourGithubUsername",
+      //   value:
+      //     "Begins the process of verifying and saving your GitHub username in the database.",
+      // },
       {
-        name: "!pollen verify-discourse YourDiscourseUsername",
-        value:
-          "Begins the process of verifying and saving your Discourse username in the database.",
-      },
-      {
-        name: "!pollen verify-github YourGithubUsername",
-        value:
-          "Begins the process of verifying and saving your GitHub username in the database.",
-      },
-      {
-        name: "!pollen update-discord",
+        name: "!bal update-discord",
         value: "Updates your Discord ID and tag in the database."
       }
     ],
@@ -152,7 +149,7 @@ export function adminHelpEmbed(): MessageEmbed {
   return new MessageEmbed({
     color: 16769024,
     author: {
-      name: "Pollen bot",
+      name: "SourceCred Sign-in Bot",
       url: "https://github.com/1Hive/pollen-bot",
     },
     description:
@@ -162,29 +159,29 @@ export function adminHelpEmbed(): MessageEmbed {
     },
     fields: [
       {
-        name: "!pollen updateroles",
+        name: "!bal updateroles",
         value: "Updates cred minting roles."
       },
       {
-        name: "!pollen getlastmodified [weeks]",
+        name: "!bal getlastmodified [weeks]",
         value: "Gets the list of users modified in the DB for the past [weeks].",
       },
       {
-        name: "!pollen getaddresslist",
+        name: "!bal getaddresslist",
         value:
           "Gets the list of user addresses from the DB to be used for the Aragon labels.",
       },
       {
-        name: "!pollen getbanned",
-        value: "Gets the list of pollen banned users."
+        name: "!bal getbanned",
+        value: "Gets the list of users that cannot sign up for BAL using SourceCred."
       },
       {
-        name: "!pollen ban [user ID or IDs separated by spaces (' ')]",
-        value: "Bans the specified users from pollen.",
+        name: "!bal ban [user ID or IDs separated by spaces (' ')]",
+        value: "Bans the specified users from using sourcecred.",
       },
       {
-        name: "!pollen uban [user ID or IDs separated by spaces (' ')]",
-        value: "Unbans the specified users from pollen.",
+        name: "!bal uban [user ID or IDs separated by spaces (' ')]",
+        value: "Unbans the specified users from using sourcecred.",
       }
     ],
     image: {
@@ -204,7 +201,7 @@ export function verifyDiscourseEmbed(
   return new MessageEmbed({
     title: "Verify discourse account",
     description:
-      "Process to verify your account to opt-in for pollen distributions.",
+      "Process to verify your account to opt-in for SourceCred BAL distributions.",
     thumbnail: {
       url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
     },
@@ -218,7 +215,7 @@ export function verifyDiscourseEmbed(
       {
         name: "2. Complete the verification",
         value: `Confirm the previous step using the following command:
-        \`!pollen check-discourse ${verificationCode} ${discourseUsername}\``,
+        \`!bal check-discourse ${verificationCode} ${discourseUsername}\``,
       },
     ],
     timestamp: new Date(),
@@ -241,7 +238,7 @@ export function successDiscourseVerificationEmbed(
     fields: [
       {
         name: "All set!",
-        value: `Thanks for verifying your discourse account for pollen distributions, ${discourseUsername}!`,
+        value: `Thanks for verifying your discourse account for Sourcecred BAL distributions, ${discourseUsername}!`,
       },
     ],
     timestamp: new Date(),
@@ -279,7 +276,7 @@ export function verifyGithubEmbed(
   return new MessageEmbed({
     title: "Verify github account",
     description:
-      "Process to verify your account to opt-in for pollen distributions.",
+      "Process to verify your account to opt-in for sourcecred BAL distributions.",
     thumbnail: {
       url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
     },
@@ -287,7 +284,7 @@ export function verifyGithubEmbed(
     fields: [
       {
         name: "1. Create a public gist",
-        value: "Create a [public gist](https://gist.github.com/) called `pollen.md`",
+        value: "Create a [public gist](https://gist.github.com/) called `bal.md`",
       },
       {
         name: `2. Set code \`${verificationCode}\``,
@@ -296,7 +293,7 @@ export function verifyGithubEmbed(
       {
         name: "3. Complete the verification",
         value: `Confirm the previous step using the following command:
-        \`!pollen check-github ${verificationCode} ${githubUsername}\``,
+        \`!bal check-github ${verificationCode} ${githubUsername}\``,
       },
     ],
     timestamp: new Date(),
@@ -319,7 +316,7 @@ export function successGithubVerificationEmbed(
     fields: [
       {
         name: "All set!",
-        value: `Thanks for verifying your github account for pollen distributions, ${githubUsername}!`,
+        value: `Thanks for verifying your github account for sourcecred BAL distributions, ${githubUsername}!`,
       },
     ],
     timestamp: new Date(),
