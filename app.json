@@ -1,13 +1,8 @@
 {
-    "name": "SourceCred Bot",
-    "description": "A discord bot to support Treasury duties 🏦",
-    "repository": "https://github.com/1Hive/pollen-bot",
-    "logo": "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
-    "keywords": ["node", "discord", "Balancer"],
-    "env": {
-      "DISCORD_API_TOKEN": "ODgwNTUyOTE3OTQ0MzgxNDcx.YSf8zw.FR8ynvnhzrVwDMaZNp-JBazpRZQ",
-      "MONGODB_URI": "mongodb://localhost",
-      "GUILD_ID": "880547738742308874",
-      "POLLEN_ADMIN": "760638567562477649"
-    }
-  }
+  "name": "SourceCred Bot",
+  "description": "A discord bot to support Treasury duties 🏦",
+  "repository": "https://github.com/1Hive/pollen-bot",
+  "logo": "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
+  "keywords": ["node", "discord", "Balancer"],
+  "env": {}
+}

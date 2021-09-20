@@ -4,27 +4,23 @@ import { MessageEmbed } from "discord.js";
 export function wrongChannelWarningEmbed(): MessageEmbed {
   return new MessageEmbed({
     title: "Warning 🚨",
-    description:
-      "Bot commands are only allowed in <#762377613062701146> channel!",
+    description: "Bot commands are only allowed in the bot-commands channel!",
     color: 16769024,
     fields: [
       {
         name: "Lets keep our discord server clean :)",
-        value:
-          "We encourage bees to use channels properly, if you ever feel lost check [this at #info](https://discordapp.com/channels/698287700834517064/758821739202347038/758886904078008363).",
+        value: "We encourage folks to use channels properly.",
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    },
-  })
+  });
 }
 
 export function walletWarningEmbed(): MessageEmbed {
   return new MessageEmbed({
     title: "Warning 🚨",
-    description: "You are using the `!bal save-wallet` command incorrectly. You may have included < > when just your ETH address is needed. Please try again.",
+    description:
+      "You are using the `!bal save-wallet` command incorrectly. You may have included < > when just your ETH address is needed. Please try again.",
     color: 16769024,
     fields: [
       {
@@ -34,13 +30,10 @@ export function walletWarningEmbed(): MessageEmbed {
       },
     ],
     image: {
-      url: "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    },
-  })
+  });
 }
 
 export function infoEmbed(): MessageEmbed {
@@ -53,7 +46,7 @@ export function infoEmbed(): MessageEmbed {
     description:
       "[SourceCred](https://sourcecred.io) is a contributor rank used to recognize contributions across the web3 ecosystem and currently on the Balancer Discord server. These contributions are rewarded with weekly distributions of BAL.",
     thumbnail: {
-      url: "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     fields: [
       {
@@ -80,10 +73,10 @@ export function infoEmbed(): MessageEmbed {
         name: "Update Discord account",
         value:
           "Send `!bal update-discord` in case you want to update your Discord tag in the DB",
-      }
+      },
     ],
-    timestamp: new Date()
-  })
+    timestamp: new Date(),
+  });
 }
 
 export function helpEmbed(): MessageEmbed {
@@ -96,16 +89,17 @@ export function helpEmbed(): MessageEmbed {
     description:
       "Hi, I'm the SourceCred Sign-in Bot, I handle some SourceCred related actions, like signing up and activating accounts. All my commands are prefixed by `!bal`. Refer to the list below for a list of my commands!",
     thumbnail: {
-      url: "https://raw.githubusercontent.com/Jolie-Ze/pollen-bot/main/bolencer-bot.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     fields: [
       {
         name: "!bal help",
-        value: "Lists all SourceCred Sign-in Bot commands."
+        value: "Lists all SourceCred Sign-in Bot commands.",
       },
       {
         name: "!bal info",
-        value: "Displays information of what SourceCred is in the Balancer Server and how to get started.",
+        value:
+          "Displays information of what SourceCred is in the Balancer Server and how to get started.",
       },
       {
         name: "!bal mycred",
@@ -114,11 +108,12 @@ export function helpEmbed(): MessageEmbed {
       },
       {
         name: "!bal userinfo",
-        value: "Shows your SourceCred user info saved in the database."
+        value: "Shows your SourceCred user info saved in the database.",
       },
       {
         name: "!bal save-wallet YourWalletAddress",
-        value: "Saves your wallet address, Discord ID and Discord tag in the database (address will be used for SourceCred BAL payouts).",
+        value:
+          "Saves your wallet address, Discord ID and Discord tag in the database (address will be used for SourceCred BAL payouts).",
       },
       // {
       //   name: "!bal verify-discourse YourDiscourseUsername",
@@ -132,17 +127,11 @@ export function helpEmbed(): MessageEmbed {
       // },
       {
         name: "!bal update-discord",
-        value: "Updates your Discord ID and tag in the database."
-      }
+        value: "Updates your Discord ID and tag in the database.",
+      },
     ],
-    image: {
-      url: "https://i.imgur.com/E7x8s0j.png",
-    },
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
 export function adminHelpEmbed(): MessageEmbed {
@@ -152,19 +141,19 @@ export function adminHelpEmbed(): MessageEmbed {
       name: "SourceCred Sign-in Bot",
       url: "https://github.com/1Hive/pollen-bot",
     },
-    description:
-      "Refer to the list below for a list of admin commands",
+    description: "Refer to the list below for a list of admin commands",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     fields: [
       {
         name: "!bal updateroles",
-        value: "Updates cred minting roles."
+        value: "Updates cred minting roles.",
       },
       {
         name: "!bal getlastmodified [weeks]",
-        value: "Gets the list of users modified in the DB for the past [weeks].",
+        value:
+          "Gets the list of users modified in the DB for the past [weeks].",
       },
       {
         name: "!bal getaddresslist",
@@ -173,7 +162,8 @@ export function adminHelpEmbed(): MessageEmbed {
       },
       {
         name: "!bal getbanned",
-        value: "Gets the list of users that cannot sign up for BAL using SourceCred."
+        value:
+          "Gets the list of users that cannot sign up for BAL using SourceCred.",
       },
       {
         name: "!bal ban [user ID or IDs separated by spaces (' ')]",
@@ -182,16 +172,10 @@ export function adminHelpEmbed(): MessageEmbed {
       {
         name: "!bal uban [user ID or IDs separated by spaces (' ')]",
         value: "Unbans the specified users from using sourcecred.",
-      }
+      },
     ],
-    image: {
-      url: "https://i.imgur.com/E7x8s0j.png",
-    },
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
 export function verifyDiscourseEmbed(
@@ -203,7 +187,7 @@ export function verifyDiscourseEmbed(
     description:
       "Process to verify your account to opt-in for SourceCred BAL distributions.",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     color: 16769024,
     fields: [
@@ -219,10 +203,7 @@ export function verifyDiscourseEmbed(
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
 export function successDiscourseVerificationEmbed(
@@ -232,7 +213,7 @@ export function successDiscourseVerificationEmbed(
     title: "Congratulations!",
     description: "The verification process was completed successfully",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     color: 16769024,
     fields: [
@@ -242,18 +223,17 @@ export function successDiscourseVerificationEmbed(
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
-export function errorDiscourseVerificationEmbed(errorMessage: string): MessageEmbed {
+export function errorDiscourseVerificationEmbed(
+  errorMessage: string
+): MessageEmbed {
   return new MessageEmbed({
     title: "Bad news!",
     description: "There was an error in the discourse verification process.",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     color: 16769024,
     fields: [
@@ -263,10 +243,7 @@ export function errorDiscourseVerificationEmbed(errorMessage: string): MessageEm
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
 export function verifyGithubEmbed(
@@ -278,13 +255,14 @@ export function verifyGithubEmbed(
     description:
       "Process to verify your account to opt-in for sourcecred BAL distributions.",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     color: 16769024,
     fields: [
       {
         name: "1. Create a public gist",
-        value: "Create a [public gist](https://gist.github.com/) called `bal.md`",
+        value:
+          "Create a [public gist](https://gist.github.com/) called `bal.md`",
       },
       {
         name: `2. Set code \`${verificationCode}\``,
@@ -297,10 +275,7 @@ export function verifyGithubEmbed(
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
 export function successGithubVerificationEmbed(
@@ -310,7 +285,7 @@ export function successGithubVerificationEmbed(
     title: "Congratulations!",
     description: "The verification process was completed successfully",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     color: 16769024,
     fields: [
@@ -320,18 +295,17 @@ export function successGithubVerificationEmbed(
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
-export function errorGithubVerificationEmbed(errorMessage: string): MessageEmbed {
+export function errorGithubVerificationEmbed(
+  errorMessage: string
+): MessageEmbed {
   return new MessageEmbed({
     title: "Bad news!",
     description: "There was an error in the github verification process.",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     color: 16769024,
     fields: [
@@ -341,10 +315,7 @@ export function errorGithubVerificationEmbed(errorMessage: string): MessageEmbed
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "wiki.1hive.org",
-    }
-  })
+  });
 }
 
 export function credEmbed(
@@ -356,7 +327,7 @@ export function credEmbed(
     color: 16769024,
     title: "Your cred:",
     thumbnail: {
-      url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
     },
     fields: [
       {
@@ -373,8 +344,5 @@ export function credEmbed(
       },
     ],
     timestamp: new Date(),
-    footer: {
-      text: "pollen.1hive.org",
-    }
-  })
+  });
 }
