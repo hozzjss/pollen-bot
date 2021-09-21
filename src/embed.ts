@@ -41,7 +41,6 @@ export function infoEmbed(): MessageEmbed {
     color: 16769024,
     author: {
       name: "SourceCred Sign-in Bot",
-      url: "https://github.com/1Hive/pollen-bot",
     },
     description:
       "[SourceCred](https://sourcecred.io) is a contributor rank used to recognize contributions across the web3 ecosystem and currently on the Balancer Discord server. These contributions are rewarded with weekly distributions of BAL.",
