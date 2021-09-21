@@ -30,7 +30,7 @@ export function walletWarningEmbed(): MessageEmbed {
       },
     ],
     image: {
-      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/sc-bal-color.png",
     },
     timestamp: new Date(),
   });
@@ -233,7 +233,7 @@ export function errorDiscourseVerificationEmbed(
     title: "Bad news!",
     description: "There was an error in the discourse verification process.",
     thumbnail: {
-      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/sc-bal-color.png",
     },
     color: 16769024,
     fields: [
@@ -305,7 +305,7 @@ export function errorGithubVerificationEmbed(
     title: "Bad news!",
     description: "There was an error in the github verification process.",
     thumbnail: {
-      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/bolencer-bot.png",
+      url: "https://raw.githubusercontent.com/hozzjss/pollen-bot/main/sc-bal-color.png",
     },
     color: 16769024,
     fields: [
