@@ -107,7 +107,8 @@ export function helpEmbed(): MessageEmbed {
       },
       {
         name: "!bal userinfo",
-        value: "Shows your SourceCred user info saved in the database.",
+        value:
+          "Shows your SourceCred user info saved in the database in a private message.",
       },
       {
         name: "!bal save-wallet YourWalletAddress",
