@@ -1,5 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import fetch from "node-fetch";
+import { commandPrefix } from "../constants";
 import {
   verifyGithubEmbed,
   successGithubVerificationEmbed,
@@ -7,29 +8,29 @@ import {
 } from "../embed";
 
 export async function handleGithubVerify(
-  discord_id: string, 
+  discord_id: string,
   github_username: string
-): Promise<{ discord: string, message: MessageEmbed }> {
+): Promise<{ discord: string; message: MessageEmbed }> {
   const verification_code = createVerificationCode();
   const message = verifyGithubEmbed(verification_code, github_username);
-  
+
   tempStorage[discord_id] = verification_code;
 
-  return { discord: discord_id, message }
+  return { discord: discord_id, message };
 }
 
 export async function handleGithubCheck(
   discord_id: string,
   verification_code: string,
-  github_username: string,
-): Promise<{ message: MessageEmbed, ok: boolean, username: string }> {
+  github_username: string
+): Promise<{ message: MessageEmbed; ok: boolean; username: string }> {
   const response = await matchUser(
     discord_id,
     verification_code,
-    github_username,
+    github_username
   );
 
-  return response
+  return response;
 }
 
 // get user information from gist api
@@ -38,9 +39,9 @@ async function getUserGist(github_username: string) {
 
   const responseJson = await fetch(getSpecificUser_URL).then((response) => {
     if (response.ok) {
-      return response.json()
+      return response.json();
     } else {
-      throw new Error("Couldn't fetch user info.")
+      throw new Error("Couldn't fetch user info.");
     }
   });
 
@@ -61,33 +62,36 @@ async function getUserGist(github_username: string) {
     }
   }
 
-  return { gistPollen, username }
+  return { gistPollen, username };
 }
 
 // main logic to match user
 async function matchUser(
-  discord_id: string, 
-  verification_code: string, 
+  discord_id: string,
+  verification_code: string,
   github_username: string
-): Promise<{ message: MessageEmbed, ok: boolean, username: string }> {
+): Promise<{ message: MessageEmbed; ok: boolean; username: string }> {
   let message: MessageEmbed, ok: boolean;
 
   if (verification_code !== tempStorage[discord_id]) {
     message = errorGithubVerificationEmbed(
       `You first need to submit this command:
-      **!pollen verify-github ${github_username}**`
+      **${commandPrefix} verify-github ${github_username}**`
     );
     ok = false;
 
-    return { message, ok, username: "" }
+    return { message, ok, username: "" };
   }
 
-  const { gistPollen: { content }, username } = await getUserGist(github_username);
+  const {
+    gistPollen: { content },
+    username,
+  } = await getUserGist(github_username);
 
   if (content === verification_code) {
     message = successGithubVerificationEmbed(github_username);
     ok = true;
-    
+
     delete tempStorage[discord_id];
   } else {
     message = errorGithubVerificationEmbed(
@@ -96,9 +100,10 @@ async function matchUser(
     ok = false;
   }
 
-  return { message, ok, username }
+  return { message, ok, username };
 }
 
 // generate random code for user
-const createVerificationCode = (): string => Math.random().toString(36).substr(2, 10);
+const createVerificationCode = (): string =>
+  Math.random().toString(36).substr(2, 10);
 const tempStorage = {};

@@ -1,5 +1,6 @@
 /* eslint-disable quotes */
 import { MessageEmbed } from "discord.js";
+import { commandPrefix } from "./constants";
 
 export function wrongChannelWarningEmbed(): MessageEmbed {
   return new MessageEmbed({
@@ -18,17 +19,17 @@ export function wrongChannelWarningEmbed(): MessageEmbed {
     footer: {
       text: "wiki.1hive.org",
     },
-  })
+  });
 }
 
 export function walletWarningEmbed(): MessageEmbed {
   return new MessageEmbed({
     title: "Warning 🚨",
-    description: "You are using the `!pollen save-wallet` command incorrectly!",
+    description: `You are using the \`${commandPrefix} save-wallet\` command incorrectly!`,
     color: 16769024,
     fields: [
       {
-        name: "`!pollen save-wallet walletAddress`",
+        name: `\`${commandPrefix} save-wallet walletAddress\``,
         value:
           "Correct usage of this command requires you to add your xDai wallet address.",
       },
@@ -40,7 +41,7 @@ export function walletWarningEmbed(): MessageEmbed {
     footer: {
       text: "wiki.1hive.org",
     },
-  })
+  });
 }
 
 export function infoEmbed(): MessageEmbed {
@@ -63,30 +64,26 @@ export function infoEmbed(): MessageEmbed {
       },
       {
         name: "Save wallet address - required",
-        value:
-          "Send `!pollen save-wallet walletAddress` to add your wallet address to the Pollen DB as well as your Discord ID and Discord tag.",
+        value: `Send \`${commandPrefix} save-wallet walletAddress\` to add your wallet address to the Pollen DB as well as your Discord ID and Discord tag.`,
       },
       {
         name: "Save Discourse (Forum) account - optional",
-        value:
-          "Send `!pollen verify-discourse discourseUsername` and follow the process to verify and add your Discourse account (if you have one) to the Pollen DB.",
+        value: `Send \`${commandPrefix} verify-discourse discourseUsername\` and follow the process to verify and add your Discourse account (if you have one) to the Pollen DB.`,
       },
       {
         name: "Save GitHub account - optional",
-        value:
-          "Send `!pollen verify-github githubUsername` and follow the process to verify and add your GitHub account (if you have one) to the Pollen DB.",
+        value: `Send \`${commandPrefix} verify-github githubUsername\` and follow the process to verify and add your GitHub account (if you have one) to the Pollen DB.`,
       },
       {
         name: "Update Discord account",
-        value:
-          "Send `!pollen update-discord` in case you want to update your Discord tag in the DB",
-      }
+        value: `Send \`${commandPrefix} update-discord\` in case you want to update your Discord tag in the DB`,
+      },
     ],
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function helpEmbed(): MessageEmbed {
@@ -96,47 +93,47 @@ export function helpEmbed(): MessageEmbed {
       name: "Pollen bot",
       url: "https://github.com/1Hive/pollen-bot",
     },
-    description:
-      "Hi, my name's Pollen Bot, I handle some Pollen related actions. All my commands are prefixed by `!pollen`. Refer to the list below for a list of my commands!",
+    description: `Hi, my name's Pollen Bot, I handle some Pollen related actions. All my commands are prefixed by \`${commandPrefix}\`. Refer to the list below for a list of my commands!`,
     thumbnail: {
       url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
     },
     fields: [
       {
-        name: "!pollen help",
-        value: "Lists all pollen commands."
+        name: `${commandPrefix} help`,
+        value: "Lists all pollen commands.",
       },
       {
-        name: "!pollen info",
+        name: `${commandPrefix} info`,
         value: "Displays information of what Pollen is and how to get started.",
       },
       {
-        name: "!pollen mycred",
+        name: `${commandPrefix} mycred`,
         value:
           "Shows your total cred, cred earned last week and cred earned this week.",
       },
       {
-        name: "!pollen userinfo",
-        value: "Shows your pollen user info saved in the database."
+        name: `${commandPrefix} userinfo`,
+        value: "Shows your pollen user info saved in the database.",
       },
       {
-        name: "!pollen save-wallet YourWalletAddress",
-        value: "Saves your wallet address, Discord ID and Discord tag in the database (address will be used for pollen payouts).",
+        name: `${commandPrefix} save-wallet YourWalletAddress`,
+        value:
+          "Saves your wallet address, Discord ID and Discord tag in the database (address will be used for pollen payouts).",
       },
       {
-        name: "!pollen verify-discourse YourDiscourseUsername",
+        name: `${commandPrefix} verify-discourse YourDiscourseUsername`,
         value:
           "Begins the process of verifying and saving your Discourse username in the database.",
       },
       {
-        name: "!pollen verify-github YourGithubUsername",
+        name: `${commandPrefix} verify-github YourGithubUsername`,
         value:
           "Begins the process of verifying and saving your GitHub username in the database.",
       },
       {
-        name: "!pollen update-discord",
-        value: "Updates your Discord ID and tag in the database."
-      }
+        name: `${commandPrefix} update-discord`,
+        value: "Updates your Discord ID and tag in the database.",
+      },
     ],
     image: {
       url: "https://i.imgur.com/E7x8s0j.png",
@@ -144,8 +141,8 @@ export function helpEmbed(): MessageEmbed {
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function adminHelpEmbed(): MessageEmbed {
@@ -155,37 +152,37 @@ export function adminHelpEmbed(): MessageEmbed {
       name: "Pollen bot",
       url: "https://github.com/1Hive/pollen-bot",
     },
-    description:
-      "Refer to the list below for a list of admin commands",
+    description: "Refer to the list below for a list of admin commands",
     thumbnail: {
       url: "https://cdn.discordapp.com/attachments/762754727620378634/847572341910274180/01.png",
     },
     fields: [
       {
-        name: "!pollen updateroles",
-        value: "Updates cred minting roles."
+        name: `${commandPrefix} updateroles`,
+        value: "Updates cred minting roles.",
       },
       {
-        name: "!pollen getlastmodified [weeks]",
-        value: "Gets the list of users modified in the DB for the past [weeks].",
+        name: `${commandPrefix} getlastmodified [weeks]`,
+        value:
+          "Gets the list of users modified in the DB for the past [weeks].",
       },
       {
-        name: "!pollen getaddresslist",
+        name: `${commandPrefix} getaddresslist`,
         value:
           "Gets the list of user addresses from the DB to be used for the Aragon labels.",
       },
       {
-        name: "!pollen getbanned",
-        value: "Gets the list of pollen banned users."
+        name: `${commandPrefix} getbanned`,
+        value: "Gets the list of pollen banned users.",
       },
       {
-        name: "!pollen ban [user ID or IDs separated by spaces (' ')]",
+        name: `${commandPrefix} ban [user ID or IDs separated by spaces (' ')]`,
         value: "Bans the specified users from pollen.",
       },
       {
-        name: "!pollen uban [user ID or IDs separated by spaces (' ')]",
+        name: `${commandPrefix} uban [user ID or IDs separated by spaces (' ')]`,
         value: "Unbans the specified users from pollen.",
-      }
+      },
     ],
     image: {
       url: "https://i.imgur.com/E7x8s0j.png",
@@ -193,8 +190,8 @@ export function adminHelpEmbed(): MessageEmbed {
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function verifyDiscourseEmbed(
@@ -218,14 +215,14 @@ export function verifyDiscourseEmbed(
       {
         name: "2. Complete the verification",
         value: `Confirm the previous step using the following command:
-        \`!pollen check-discourse ${verificationCode} ${discourseUsername}\``,
+        \`${commandPrefix} check-discourse ${verificationCode} ${discourseUsername}\``,
       },
     ],
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function successDiscourseVerificationEmbed(
@@ -247,11 +244,13 @@ export function successDiscourseVerificationEmbed(
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
-export function errorDiscourseVerificationEmbed(errorMessage: string): MessageEmbed {
+export function errorDiscourseVerificationEmbed(
+  errorMessage: string
+): MessageEmbed {
   return new MessageEmbed({
     title: "Bad news!",
     description: "There was an error in the discourse verification process.",
@@ -268,8 +267,8 @@ export function errorDiscourseVerificationEmbed(errorMessage: string): MessageEm
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function verifyGithubEmbed(
@@ -287,7 +286,8 @@ export function verifyGithubEmbed(
     fields: [
       {
         name: "1. Create a public gist",
-        value: "Create a [public gist](https://gist.github.com/) called `pollen.md`",
+        value:
+          "Create a [public gist](https://gist.github.com/) called `pollen.md`",
       },
       {
         name: `2. Set code \`${verificationCode}\``,
@@ -296,14 +296,14 @@ export function verifyGithubEmbed(
       {
         name: "3. Complete the verification",
         value: `Confirm the previous step using the following command:
-        \`!pollen check-github ${verificationCode} ${githubUsername}\``,
+        \`${commandPrefix} check-github ${verificationCode} ${githubUsername}\``,
       },
     ],
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function successGithubVerificationEmbed(
@@ -325,11 +325,13 @@ export function successGithubVerificationEmbed(
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
-export function errorGithubVerificationEmbed(errorMessage: string): MessageEmbed {
+export function errorGithubVerificationEmbed(
+  errorMessage: string
+): MessageEmbed {
   return new MessageEmbed({
     title: "Bad news!",
     description: "There was an error in the github verification process.",
@@ -346,8 +348,8 @@ export function errorGithubVerificationEmbed(errorMessage: string): MessageEmbed
     timestamp: new Date(),
     footer: {
       text: "wiki.1hive.org",
-    }
-  })
+    },
+  });
 }
 
 export function credEmbed(
@@ -378,6 +380,6 @@ export function credEmbed(
     timestamp: new Date(),
     footer: {
       text: "pollen.1hive.org",
-    }
-  })
+    },
+  });
 }

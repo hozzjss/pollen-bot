@@ -9,6 +9,7 @@ import { log } from "./utils";
 import updateroles from "./handlers/updateRoles";
 
 import { wrongChannelWarningEmbed } from "./embed";
+import { commandPrefix } from "./constants";
 
 require("./db/connection");
 
@@ -19,13 +20,13 @@ config();
 const client = new Client({
   partials: ["MESSAGE", "REACTION"],
   intents: [
-      "GUILDS",
-      "GUILD_MESSAGES",
-      "GUILD_MESSAGE_REACTIONS",
-      "GUILD_MEMBERS",
-      "DIRECT_MESSAGES",
-      "DIRECT_MESSAGE_REACTIONS",
-    ]
+    "GUILDS",
+    "GUILD_MESSAGES",
+    "GUILD_MESSAGE_REACTIONS",
+    "GUILD_MEMBERS",
+    "DIRECT_MESSAGES",
+    "DIRECT_MESSAGE_REACTIONS",
+  ],
 });
 
 client.on("ready", () => {
@@ -37,7 +38,7 @@ client.on("messageCreate", (message) => {
 
   // Gets the Bot-commands channel ID.
   const BOT_COMMANDS_CHANNEL_ID =
-    message.channel.type === "DM"
+    process.env.BOT_COMMANDS_CHANNEL_ID || message.channel.type === "DM"
       ? message.channel.id
       : message.guild.channels.cache.find((channel) => {
           return channel.name.includes("bot-commands");
@@ -59,7 +60,9 @@ client.on("messageCreate", (message) => {
         message.delete();
         client.channels.fetch(BOT_COMMANDS_CHANNEL_ID).then((channel) => {
           (channel as TextChannel).send(`<@${message.author.id}>`);
-          (channel as TextChannel).send({ embeds: [ wrongChannelWarningEmbed() ] })
+          (channel as TextChannel).send({
+            embeds: [wrongChannelWarningEmbed()],
+          });
         });
         return;
       }
@@ -68,7 +71,7 @@ client.on("messageCreate", (message) => {
     if (err instanceof RequestHandlerError) {
       log(`${err}`);
       message.reply(
-        "Could not find the requested command. Please use !pollen help for more info."
+        `Could not find the requested command. Please use ${commandPrefix} help for more info.`
       );
     }
     // Sentry.captureException(err)

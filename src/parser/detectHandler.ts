@@ -1,21 +1,21 @@
 import { CommandHandler } from "../types";
 import { RequestHandlerError } from "../error-utils";
 import handlers from "../handlers";
+import { commandPrefix } from "../constants";
 
 const noop = () => undefined;
 
 export default function detectHandler(message: string): CommandHandler {
-
   const [requestedNamespace, requestedHandler] = message.split(" ");
   // If it's not a flag, we can safely ignore this command.
-  if (!requestedNamespace.includes("!pollen")) return noop();
+  if (!requestedNamespace.includes(commandPrefix)) return noop();
 
   const receivedHandler = handlers.get(requestedHandler);
 
   if (typeof receivedHandler !== "function") {
     throw new RequestHandlerError(
-      `Could not find command with flag ${requestedHandler}`,
-    )
+      `Could not find command with flag ${requestedHandler}`
+    );
   }
 
   return receivedHandler;
